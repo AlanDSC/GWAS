@@ -46,7 +46,6 @@
           <li><a class="nav-link scrollto active" href="#welcome">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#methodology">Methodology</a></li>
-          <li><a class="nav-link scrollto" href="#data">Data</a></li>
           <li><a class="nav-link scrollto" href="#results">Results</a></li>
           <li><a class="nav-link scrollto" href="#results">Conclusion</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
@@ -68,7 +67,8 @@
           <p> One of the greatest challenges in public health is the growing number of bacterial species that have
             developed resistance to antibiotics through point mutations in their genome.
             Our project aims to identify these genetic markers of antibiotic resistance through a genome wide
-            association study between 36 antibiotic resistant E.Coli samples and 36 control samples. Variants will be
+            association study between 36 antibiotic resistant E.Coli samples and 36 control samples. Genetic variants
+            will be
             checked for statistical significance, and analyzed for any functional effects.
           </p>
         </div>
@@ -85,24 +85,34 @@
               <p class="font-italic">
                 Although <b>antibiotic resistant bacteria</b> have been studied for decades, their whole genome
                 sequencing has started relatively recently <sup>[4]</sup>. Due to their immunity to known
-                medicine, their exposure to humans can lead to infections that are impossible to cure [1].
+                medicine, their exposure to humans can lead to infections that are currently <b>impossible to cure</b>
+                <sup>[1]</sup>.
                 According to the International Federation of Pharmaceutical
                 Manufacturers & Associations
                 (IFPMA), antibiotic resistance will:
               </p>
               <ul>
-                <li><i class="bx bx-check-double"></i> <b>Force 28 million more people into poverty<sup>[2]</sup> </b></li>
-                <li><i class="bx bx-check-double"></i> <b>Cost the global economy up to 100 trillion dollars <sup>[2]</sup></b></li>
-                <li><i class="bx bx-check-double"></i> <b>Kill up to 10 million people a year by 2050<sup>[2]</sup></b></li>
+                <li><i class="bx bx-check-double"></i> <b>Force 28 million more people into poverty<sup>[2]</sup> </b>
+                </li>
+                <li><i class="bx bx-check-double"></i> <b>Cost the global economy up to 100 trillion
+                    dollars<sup>[2]</sup></b></li>
+                <li><i class="bx bx-check-double"></i> <b>Kill up to 10 million people a year by 2050<sup>[2]</sup></b>
+                </li>
               </ul>
               <p>
-                This study focuses on <b>Enterobacteriaceae</b>, specifically E. Coli, commonly causes infections both
+                This study focuses on <b>Enterobacteriaceae</b>, specifically E. Coli, a common cause of infections,
+                both
                 in healthcare
-                settings and communities <sup>[5]</sup>. Certain strains however have developed an especially dangerous
+                settings and communities <sup>[5]</sup>. Certain strains of E. Coli have developed an especially
+                dangerous
                 resistance mechanism, the ability to produce an enzyme known as <b>extended-spectrum
-                  beta-lactamase</b>, or ESBL <sup>[5]</sup>>. ESBL is capable of breaking down multiple types of
+                  beta-lactamase</b>, or ESBL <sup>[5]</sup>. ESBL is capable of breaking down multiple types of
                 antibiotics
-                such as penicillin, rendering them ineffective <sup>[5]</sup>.
+                such as penicillin, <b>rendering them ineffective</b> <sup>[5]</sup>.
+              </p>
+              <p>
+                Understanding the genetic markers of antibiotic resistance can lead to better, <b>more effective
+                  treatments</b> to combat the growing concern of superbugs.
               </p>
             </div>
           </div>
@@ -116,18 +126,24 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Metholodgy</h2>
-          <p> This section contains our methodology and steps...
+        </div>
+
+        <div class="information" data-aos="fade-up">
+          <h3>The Data</h3>
+          <p class="font-italic">
+            The study was conducted using two groups of samples, one with an <b>ESBL-enzyme
+              producing</b> strain of E.Coli (denoted with DRR as the suffix), and a non-antibiotic resistant <b>control
+              group</b> <sup>[6][7]</sup>. For each group, <b>sample sizes were 36 whole genomes</b>. The
+            samples were obtained from <a
+              href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP058582&f=librarylayout_s%3An%3Apaired%3Bbases_l%3An%3A0%253A999999999%3Binstrument_s%3An%3Aillumina%2520miseq%3Ac&o=acc_s%3Aa&s=SRR10001251,SRR10018351,SRR10001259,SRR10001268,SRR10012673,SRR10012674,SRR10012676,SRR10012677,SRR10012698,SRR10012702,SRR10012704,SRR10012906,SRR10012913,SRR10013003,SRR10013021,SRR10013010,SRR10013022,SRR10013025,SRR10013029,SRR10013030,SRR10013032,SRR10013114,SRR10013117,SRR10013127,SRR10013130,SRR10013322,SRR10013157,SRR10013348,SRR10013353,SRR10013371,SRR10013397,SRR10013400,SRR10013405,SRR10013432,SRR10013439,SRR10013442">Illumina
+              NCBI's SRA Run Selector</a> and formatted as <b>.fastq files</b> <sup>[6][7]</sup>. Each sample has two
+            files associated with it, as they are paired-end reads, totalling to 144 files.
           </p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-left">
             <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
-              <p class="font-italic">
-                The study is conducted using two groups of samples, one with an ESBL-enzyme producing strain of E.Coli
-                which is antibiotic resistant, and a non-antibiotic resistant control group...
-              </p>
-
             </div>
           </div>
         </div>
@@ -140,26 +156,47 @@
       <div class="container">
 
         <div class="row">
+          <h3>Quality Control</h3>
+          <p>To ensure these 144 files will yield valid results later in the analysis, each was put through a quality
+            control software called FastQC. <b>FastQC</b> takes in a single .fastq file and <b>outputs a summary
+              report</b> listing
+            basic statistics about the reads, including quality scores from base calling, the presence of adapter
+            sequences, and percent N content, which indicates missing data. </p>
+          <p>While it’s important to check for quality of
+            each sample individually, the FastQC results of our <b>case and control groups were also aggregated</b> in
+            order to
+            <b>identify</b> any major <b>differences in quality</b> between them that could affect the GWAS results.
+            <b>All 144
+              files passed</b> the default FastQC check for basic statistics and adapter content, thus they were all
+            included in the study.
+            However, the <b>antibiotic resistance group</b> had more samples that had an <b>unusually high per
+              sequence GC content</b>, indicated by the higher number of ESBL_Samples that failed this check (see <a
+              href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html">GC
+              Content</a> and <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html">Adapter Content</a>). This could be due to either the data being lower quality, OR this
+            possibly being an actual
+            physiological marker for genomes in this group.
+          </p>
           <div class="col-lg-6" data-aos="fade-right">
+
             <div class="tab-content">
               <div class="tab-pane active show" id="tab-1">
                 <figure>
-                  <img src="assets/img/image.png" alt="" class="img-fluid">
+                  <img src="assets\img\quality score.png" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-2">
                 <figure>
-                  <img src="assets/img/image.png" alt="" class="img-fluid">
+                  <img src="assets/img/sampleReport.png" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-3">
                 <figure>
-                  <img src="assets/img/image.png" alt="" class="img-fluid">
+                  <img src="assets/img/basicstats.png" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-4">
                 <figure>
-                  <img src="assets/img/image.png" alt="" class="img-fluid">
+                  <img src="assets/img/perGCadapter.png" alt="" class="img-fluid">
                 </figure>
               </div>
             </div>
@@ -168,26 +205,27 @@
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
                 <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
-                  <h4>Graph 1</h4>
-                  <p>How this graph is obtained...</p>
+                  <h4>Quality Score</h4>
+                  <p>The distribution of quality scores across reads of different lengths</p>
                 </a>
               </li>
               <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
-                  <h4>Graph 2</h4>
-                  <p>How this graph is obtained...</p>
+                  <h4>Summary Report</h4>
+                  <p>Table of summary statistics for a sample</p>
                 </a>
               </li>
-              <li class="nav-item mt-2">
+              <li class="nav-item mt-3">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
-                  <h4>Graph 3</h4>
-                  <p>How this graph is obtained...</p>
+                  <h4>Basic Statistics</h4>
+                  <p>Agreggated results of Basic statistics</p>
                 </a>
               </li>
-              <li class="nav-item mt-2">
+              <li class="nav-item mt-4">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
-                  <h4>Graph 4</h4>
-                  <p>How this graph is obtained...</p>
+                  <h4>GC and Adapter Content</h4>
+                  <p>GC-Content shows the percentage of nitrogenous bases in the DNA that are either G or C </p>
+                  <p>Adapter Content checks if any sequence is overly present in the reads </p>
                 </a>
               </li>
             </ul>
@@ -319,11 +357,16 @@
         <ul class="faq-list">
 
           <li data-aos="fade-up">
-            <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq1">[Insert Frequently Asked Question] <i
+            <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq1"> What FastQC and a FastQ file? <i
                 class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq1" class="collapse" data-bs-parent=".faq-list">
               <p>
-                [INSERT ANSWER]
+              <p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>
+                A quality control tool for high throughput sequence data.</p>
+              </p>
+              <p>
+              <p><a href="https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html">FastQ file</a>
+                A text file that contain raw reads obtained straight from the sequencing machine.</p>
               </p>
             </div>
           </li>

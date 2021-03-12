@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+img {
+  display: block;
+  margin: auto;
+}
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -231,6 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 # welcome Section
 --------------------------------------------------------------*/
 #welcome {
+  
   width: 100%;
   height: 100vh;
   background: url("../img/welcome-bg.png");
@@ -249,6 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   text-align: center;
   padding: 0 15px;
+  
 }
 
 #welcome .welcome-logo {
@@ -321,11 +327,11 @@ section {
 
 .section-title {
   text-align: center;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
 }
 
 .section-title h2 {
-  font-size: 45px;
+  font-size: 60px;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 15px;
@@ -337,7 +343,9 @@ section {
   margin-bottom: 0;
   color: #3b3b3bbb;
   font-size: 20px;
+  padding-bottom: 40px;
 }
+
 
 /*--------------------------------------------------------------
 # About
@@ -374,6 +382,15 @@ section {
   margin-bottom: 0;
 }
 
+/*--------------------------------------------------------------
+# Methodology
+--------------------------------------------------------------*/
+.methodology .information h3{
+  font-weight: 600;
+  font-size: 35px;
+  padding-bottom: 10px;
+  text-align: center;
+}
 
 /*--------------------------------------------------------------
 # data
@@ -381,6 +398,13 @@ section {
 .data {
   padding: 40px 0 0 0;
   background: white;
+}
+
+.data h3{
+  font-weight: 600;
+  font-size: 35px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .data .nav-tabs {
