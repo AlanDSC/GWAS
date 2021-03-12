@@ -48,7 +48,7 @@
           <li><a class="nav-link scrollto" href="#methodology">Methodology</a></li>
           <li><a class="nav-link scrollto" href="#results">Results</a></li>
           <li><a class="nav-link scrollto" href="#results">Conclusion</a></li>
-          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+          <li><a class="nav-link scrollto" href="#faq">Sources</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -84,7 +84,7 @@
               <h3>"By 2050, superbugs could kill 10 million people a year"</h3>
               <p class="font-italic">
                 Although <b>antibiotic resistant bacteria</b> have been studied for decades, their whole genome
-                sequencing has started relatively recently <sup>[4]</sup>. Due to their immunity to known
+                sequencing has started relatively recently <sup>[3]</sup>. Due to their immunity to known
                 medicine, their exposure to humans can lead to infections that are currently <b>impossible to cure</b>
                 <sup>[1]</sup>.
                 According to the International Federation of Pharmaceutical
@@ -103,12 +103,12 @@
                 This study focuses on <b>Enterobacteriaceae</b>, specifically E. Coli, a common cause of infections,
                 both
                 in healthcare
-                settings and communities <sup>[5]</sup>. Certain strains of E. Coli have developed an especially
+                settings and communities <sup>[4]</sup>. Certain strains of E. Coli have developed an especially
                 dangerous
                 resistance mechanism, the ability to produce an enzyme known as <b>extended-spectrum
-                  beta-lactamase</b>, or ESBL <sup>[5]</sup>. ESBL is capable of breaking down multiple types of
+                  beta-lactamase</b>, or ESBL <sup>[4]</sup>. ESBL is capable of breaking down multiple types of
                 antibiotics
-                such as penicillin, <b>rendering them ineffective</b> <sup>[5]</sup>.
+                such as penicillin, <b>rendering them ineffective</b> <sup>[4]</sup>.
               </p>
               <p>
                 Understanding the genetic markers of antibiotic resistance can lead to better, <b>more effective
@@ -136,10 +136,10 @@
           <p class="font-italic">
             The study was conducted using two groups of samples, one with an <b>ESBL-enzyme
               producing</b> strain of E.Coli (denoted with DRR as the suffix), and a non-antibiotic resistant <b>control
-              group</b> <sup>[6][7]</sup>. For each group, <b>sample sizes were 36 whole genomes</b>. The
+              group</b> <sup>[5][6]</sup>. For each group, <b>sample sizes were 36 whole genomes</b>. The
             samples were obtained from <a
               href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP058582&f=librarylayout_s%3An%3Apaired%3Bbases_l%3An%3A0%253A999999999%3Binstrument_s%3An%3Aillumina%2520miseq%3Ac&o=acc_s%3Aa&s=SRR10001251,SRR10018351,SRR10001259,SRR10001268,SRR10012673,SRR10012674,SRR10012676,SRR10012677,SRR10012698,SRR10012702,SRR10012704,SRR10012906,SRR10012913,SRR10013003,SRR10013021,SRR10013010,SRR10013022,SRR10013025,SRR10013029,SRR10013030,SRR10013032,SRR10013114,SRR10013117,SRR10013127,SRR10013130,SRR10013322,SRR10013157,SRR10013348,SRR10013353,SRR10013371,SRR10013397,SRR10013400,SRR10013405,SRR10013432,SRR10013439,SRR10013442">Illumina
-              NCBI's SRA Run Selector</a> and formatted as <b>.fastq files</b> <sup>[6][7]</sup>. Each sample has two
+              NCBI's SRA Run Selector</a> and formatted as <b>.fastq files</b> <sup>[5][6]</sup>. Each sample has two
             files associated with it, as they are paired-end reads, totalling to 144 files.
           </p>
           <h3>Quality Control</h3>
@@ -207,13 +207,15 @@
               <li class="nav-item mt-3">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
                   <h4>Basic Statistics</h4>
-                  <p>Agreggated results of Basic statistics</p>
+                  <p>The barchart depicts the total number of samples that passed the basic statistics test between
+                    groups</p>
                 </a>
               </li>
               <li class="nav-item mt-4">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
                   <h4>GC and Adapter Content</h4>
-                  <p>Aggregated results of GC and Adapter contents </p>
+                  <p>The barchart depicts the total number of samples that passed the basic statistics test between
+                    groups</p>
                 </a>
               </li>
             </ul>
@@ -277,6 +279,17 @@
           </p>
           <figure>
             <img src="assets/img/pca.png" alt="" class="img-fluid">
+          </figure>
+          <h4 id="pipeline">Genome Wide Association Study</h4>
+          <p class="font-italic">In order to perform the GWAS, we used a Logistic Regression model which compares the
+            two groups and calculates a p-value for each SNP. The model was further tuned by using the first two
+            principal components as covariates, and all SNP’s with a genotyping rate of less than 60% were removed from
+            the analysis. The genotyping rate was used as a measure of missing data, and we found that 60% was the best
+            threshold to use in order to minimize the skew of our results.
+
+          </p>
+          <figure>
+            <img src="assets/img/gwas.png" alt="" class="img-fluid">
           </figure>
         </div>
 
@@ -375,90 +388,15 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Frequently Asked Questions</h2>
+          <h2>Sources</h2>
         </div>
 
         <ul class="faq-list">
 
-          <li data-aos="fade-up">
-            <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq1"> What FastQC and a FastQ file? <i
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a data-bs-toggle="collapse" data-bs-target="#faq1" class="collapsed">Citations <i
                 class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-              <p>
-              <p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank">FastQC</a>
-                A quality control tool that is used in checking the quality of raw sequencing data before performing
-                large-scale analysis</p>
-              </p>
-              <p>
-              <p><a href="https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html"
-                  target="_blank">FastQ file</a>
-                A text file that contain raw reads obtained straight from the sequencing machine.</p>
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="100">
-            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">[Insert Frequently Asked Question] <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                [INSERT ANSWER]
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="200">
-            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed">[Insert Frequently Asked Question] <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                [INSERT ANSWER]
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="300">
-            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed">[Insert Frequently Asked Question] <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                [INSERT ANSWER]
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="400">
-            <a data-bs-toggle="collapse" data-bs-target="#faq5" class="collapsed">[Insert Frequently Asked Question] <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                [INSERT ANSWER]
-              </p>
-            </div>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="500">
-            <a data-bs-toggle="collapse" data-bs-target="#faq6" class="collapsed">[Insert Frequently Asked Question] <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                [INSERT ANSWER]
-              </p>
-            </div>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="600">
-            <a data-bs-toggle="collapse" data-bs-target="#faq7" class="collapsed">[Insert Frequently Asked Question] <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq7" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                [INSERT ANSWER]
-              </p>
-            </div>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="700">
-            <a data-bs-toggle="collapse" data-bs-target="#faq8" class="collapsed">Sources <i
-                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq8" class="collapse" data-bs-parent=".faq-list">
               <p>
                 1. Center for Disease Control. “About Antibiotic Resistance.” Centers for Disease Control and
                 Prevention, Centers for Disease Control and Prevention, 13 Mar. 2020,
@@ -470,57 +408,30 @@
                 www.ifpma.org/global-health-matters/by-2050-superbugs-may-cost-the-economy-100-trillion/#:~:text=Antimicrobial%20resistance%20(AMR)%20is%20on,%E2%80%9Csuperbugs%E2%80%9D.
               </p>
               <p>
-                3. Reygaert, Wanda C. “An overview of the antimicrobial resistance mechanisms of bacteria.” AIMS
-                microbiology vol. 4,3 482-501. 26 Jun. 2018, doi:10.3934/microbiol.2018.3.482
-              </p>
-              <p>
-                4. Ikegawa, Shiro. “A short history of the genome-wide association study: where we were and where we are
+                3. Ikegawa, Shiro. “A short history of the genome-wide association study: where we were and where we are
                 going.” Genomics & informatics vol. 10,4 (2012): 220-5. doi:10.5808/GI.2012.10.4.220
               </p>
               <p>
-                5. Center for Disease Control. “ESBL-Producing Enterobacteriaceae.” Centers for Disease Control and
+                4. Center for Disease Control. “ESBL-Producing Enterobacteriaceae.” Centers for Disease Control and
                 Prevention, Centers for Disease Control and Prevention, 22 Nov. 2019,
                 www.cdc.gov/hai/organisms/ESBL.html.
               </p>
               <p>
-                6. Patel, IR. National Center for Biotechnology Information, U.S. National Library of Medicine, 22 May
+                5. Patel, IR. National Center for Biotechnology Information, U.S. National Library of Medicine, 22 May
                 2015, trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA230969&o=acc_s%3Aa.
               </p>
               <p>
-                7. Hokkaido University. National Center for Biotechnology Information, U.S. National Library of
+                6. Hokkaido University. National Center for Biotechnology Information, U.S. National Library of
                 Medicine, 8 Dec. 2020, trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJDB10450&o=acc_s%3Aa.
-              </p>
-              <p>
-                8. Babraham Institute. Babraham Bioinformatics - FastQC A Quality Control Tool for High Throughput
-                Sequence Data, 26 Apr. 2010, www.bioinformatics.babraham.ac.uk/projects/fastqc/.
-              </p>
-              <p>
-                9. Index of /projects/fastqc/Help/3 Analysis Modules. (3333). Unknown.
-                https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
-              </p>
-              <p>
-                10. Cutadapt — Cutadapt 3.1 documentation.https://cutadapt.readthedocs.io/en/stable/
-              </p>
-              <p>
-                11. John Hopkins University. “Bowtie 2.” Bowtie 2: Manual, 5 Oct. 2020,
-                bowtie-bio.sourceforge.net/bowtie2/manual.shtml.
-              </p>
-              <p>
-                12. Broad Institute. “GATK”. GATK - How to Map and clean up short read sequence data efficiently.
-                Unknown.
-                https://gatk.broadinstitute.org/hc/en-us/articles/360039568932--How-to-Map-and-clean-up-short-read-sequence-data-efficiently
-              </p>
-              <p>
-                13. “HaplotypeCaller.” HaplotypeCaller - GATK, Broad Institute, 7 June 2020,
-                https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller.
-              </p>
-              <p>
-                14. Cingolani, Pablo. “SnpEff&SnpSift.” Home - SnpEff & SnpSift Documentation, Github,
-                pcingola.github.io/SnpEff/.
               </p>
             </div>
           </li>
-
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">Source Code <i
+              class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+          <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+            <p><a href="https://github.com/myhaider/antibiotic-resistance">Github Repository</a></p>
+            </li>
         </ul>
 
       </div>
