@@ -64,12 +64,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Abstract</h2>
-          <p> One of the greatest challenges in public health is the growing number of bacterial species that have
-            developed resistance to antibiotics through point mutations in their genome.
+          <p> One of the greatest challenges in public health is the <b>growing number of bacterial species</b> that
+            have <b>developed resistance to antibiotics</b> through point mutations in their genome.
             Our project aims to identify these genetic markers of antibiotic resistance through a genome wide
             association study between 36 antibiotic resistant E.Coli samples and 36 control samples. Genetic variants
-            will be
-            checked for statistical significance, and analyzed for any functional effects.
+            will be checked for statistical significance, and analyzed for any functional effects.
           </p>
         </div>
 
@@ -134,12 +133,13 @@
           </figure>
           <h3>The Data</h3>
           <p class="font-italic">
-            The study was conducted using two groups of samples, one with an <b>ESBL-enzyme
-              producing</b> strain of E.Coli (denoted with DRR as the suffix), and a non-antibiotic resistant <b>control
-              group</b> <sup>[5][6]</sup>. For each group, <b>sample sizes were 36 whole genomes</b>. The
+            The study was conducted using <b>two groups of samples</b>, one with an ESBL-enzyme
+            producing strain of E.Coli (denoted with DRR as the suffix), and a non-antibiotic resistant control
+            group <sup>[5][6]</sup>. For each group, <b>sample sizes were 36 whole genomes</b>. The
             samples were obtained from <a
-              href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP058582&f=librarylayout_s%3An%3Apaired%3Bbases_l%3An%3A0%253A999999999%3Binstrument_s%3An%3Aillumina%2520miseq%3Ac&o=acc_s%3Aa&s=SRR10001251,SRR10018351,SRR10001259,SRR10001268,SRR10012673,SRR10012674,SRR10012676,SRR10012677,SRR10012698,SRR10012702,SRR10012704,SRR10012906,SRR10012913,SRR10013003,SRR10013021,SRR10013010,SRR10013022,SRR10013025,SRR10013029,SRR10013030,SRR10013032,SRR10013114,SRR10013117,SRR10013127,SRR10013130,SRR10013322,SRR10013157,SRR10013348,SRR10013353,SRR10013371,SRR10013397,SRR10013400,SRR10013405,SRR10013432,SRR10013439,SRR10013442">Illumina
-              NCBI's SRA Run Selector</a> and formatted as <b>.fastq files</b> <sup>[5][6]</sup>. Each sample has two
+              href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP058582&f=librarylayout_s%3An%3Apaired%3Bbases_l%3An%3A0%253A999999999%3Binstrument_s%3An%3Aillumina%2520miseq%3Ac&o=acc_s%3Aa&s=SRR10001251,SRR10018351,SRR10001259,SRR10001268,SRR10012673,SRR10012674,SRR10012676,SRR10012677,SRR10012698,SRR10012702,SRR10012704,SRR10012906,SRR10012913,SRR10013003,SRR10013021,SRR10013010,SRR10013022,SRR10013025,SRR10013029,SRR10013030,SRR10013032,SRR10013114,SRR10013117,SRR10013127,SRR10013130,SRR10013322,SRR10013157,SRR10013348,SRR10013353,SRR10013371,SRR10013397,SRR10013400,SRR10013405,SRR10013432,SRR10013439,SRR10013442"
+              target="_blank"> Illumina NCBI's SRA Run Selector</a> and formatted as <b>.fastq files</b>
+            <sup>[5][6]</sup>. Each sample has two
             files associated with it, as they are paired-end reads, totalling to 144 files.
           </p>
           <h3>Quality Control</h3>
@@ -147,23 +147,36 @@
             control software called FastQC. <b>FastQC</b> takes in a single .fastq file and <b>outputs a summary
               report</b> listing
             basic statistics about the reads, including quality scores from base calling, the presence of adapter
-            sequences, and percent N content, which indicates missing data. </p>
+            sequences, and percent N content which indicates missing data. </p>
           <p>While it’s important to check for quality of
-            each sample individually, the FastQC results of our <b>case and control groups were also aggregated</b> in
-            order to
-            <b>identify</b> any major <b>differences in quality</b> between them that could affect the GWAS results.
+            each sample individually, the FastQC results of our <b>case and control groups were also aggregated</b> to
+            identify any major <b>differences in quality</b> between the two that could affect the <a
+              href="https://www.genome.gov/about-genomics/fact-sheets/Genome-Wide-Association-Studies-Fact-Sheet"
+              target="_blank">Genome-Wide Association Studies (GWAS)</a> results.
             <b>All 144
               files passed</b> the default FastQC check for basic statistics and adapter content, thus they were all
             included in the study.
-            However, the <b>antibiotic resistance group</b> had more samples that had an <b>unusually high per
+            However, the <b>antibiotic resistance group (ESBL) </b> had more samples that had an <b>unusually high per
               sequence GC content</b>, indicated by the higher number of ESBL_Samples that failed this check (see <a
               href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html"
               target="_blank">GC
             </a> and <a
               href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html"
-              target="_blank">Adapter Content</a>). This could be due to either the data being lower quality, OR this
-            possibly being an actual
-            physiological marker for genomes in this group.
+              target="_blank">Adapter Content</a>). This may either be a <b>physiological phenomenon</b> or a
+            <b>confounding factor</b> that may need to be addressed.
+          </p>
+          <p>During the sequencing process, <b>temporary adapter sequences</b> of nucleotides are attached to the
+            fragments of
+            DNA in order to <b>facilitate sequencing</b> <sup>[7]</sup>. Sometimes these adapters are accidentally
+            sequenced as part of
+            the sample genome, so they <b>need to be algorithmically removed</b> using tools such as Cutadapt. <a
+              href="https://cutadapt.readthedocs.io/en/stable/" target="_blank">Cutadapt</a>
+            was run on all 72 samples using default parameters, in trimmed pair-end reads mode to “remove adapter
+            sequences… from high-throughput sequencing reads”<sup>[8]</sup>. The trimmed fastq files were piped through
+            FastQC
+            again to ensure that the data still passes our <b>quality check post-adapter trimming</b>, which every file
+            did
+            <sup>[7]</sup>.
           </p>
           <div class="col-lg-6" data-aos="fade-right">
 
@@ -222,34 +235,41 @@
           </div>
           <h3>Sequence Alignment, File Conversion, Sorting</h3>
           <p class="font-italic">
-            A pair of .fastq files for one sample contain the raw reads from the entire genome, but those reads are
-            essentially small fragments that need to be put together like a puzzle. This is where the process of
-            alignment comes in. Using a previously known E. Coli reference genome, we utilized an alignment software
+            A pair of .fastq files for one <b>sample contains the raw reads</b> from the entire genome that <b>need to
+              be put
+              together into a contiguous sequence</b>. This is where the process of
+            alignment comes in. Using a <b>previously known E. Coli reference genome</b>, we utilized an alignment
+            software
             called
-            <b>Bowtie2</b> which algorithmically pieces together these <b>reads into a contiguous sequence</b>. The
-            output is a file
-            in sam format, which is a text readable version of this sequence. Using <a href="http://www.htslib.org/"
-              target="_blank">samtools</a> and <a href="https://broadinstitute.github.io/picard/"
-              target="_blank">picard</a>, these sam files were then converted to
-            .bam - a compressed version that runs more efficiently through bioinformatics software.
+            <a href="http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example"
+              target="_blank">Bowtie2</a> to algorithmically pieces together these reads. The
+            outputs were <b>36 files
+              in sam format</b>, a text readable version of this sequence, <b>per group</b> (72 total). Using <a
+              href="http://www.htslib.org/" target="_blank">samtools</a> and <a
+              href="https://broadinstitute.github.io/picard/" target="_blank">picard</a>, these sam files were then
+            <b>converted to
+              .bam files</b> - a compressed version that <b>runs more efficiently</b> through bioinformatics software.
           </p>
           <figure>
             <img src="assets/img/alignment.png" alt="" class="img-fluid">
           </figure>
           <h3>Variant Calling</h3>
           <p class="font-italic">
-            The 72 cleaned and formatted .bam files then undergo Variant Calling, which is the process of identifying
+            The <b>72 cleaned and formatted .bam files</b> then undergo variant calling, the <b>process of
+              identifying</b>
             the <a
               href="https://isogg.org/wiki/Single-nucleotide_polymorphism#:~:text=A%20single%2Dnucleotide%20polymorphism%20(SNP,paired%20chromosomes%20in%20an%20individual."
-              target="_blank">Single Nucleotide Polymorphisms</a>, or SNP’s in each sample. These are the point
-            mutations that can
-            differentiate samples, with the goal being able to find the SNP’s that are significantly different between
+              target="_blank">Single Nucleotide Polymorphisms</a> (SNP's) in each sample. These are the <b>point
+              mutations</b> that can
+            differentiate samples, with the goal being able to find the <b>SNP’s that are significantly different</b>
+            between
             our antibiotic-resistant and control groups. This was done using GATK’s <a
               href="https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller"
-              target="_blank">HaplotypeCaller</a> tool, which outputs
-            a vcf that contains the list of variants found in a single sample. All of these vcf files were then merged
+              target="_blank">HaplotypeCaller</a> tool, which <b>outputs
+              a vcf</b> that contains the <b>list of variants</b> found in a single sample. All of these vcf files were
+            then merged
             into a single file using <a href="http://samtools.github.io/bcftools/bcftools.html"
-              target="_blank">bcftools</a> which can be used for our GWAS.
+              target="_blank">bcftools</a> to be <b>applied for our GWAS</b>.
           </p>
           <figure>
             <img src="assets/img/variant.png" alt="" class="img-fluid" style="padding-bottom:30px">
@@ -269,34 +289,43 @@
 
         <div class="row">
           <h3>PCA Analysis</h3>
-          <p class="font-italic">So that was our entire process of data setup. We can move onto the actual “analysis” of
-            these genomic variants, starting with a basic PCA to determine if there is any meaningful difference between
-            the Antibiotic-resistant and Control groups. The principle components were calculated using Plink, and the
-            scatterplot of the first two PC’s are shown on the right. The initial results look promising, with most of
-            the antibiotic-resistant E. Coli samples being clustered together on the right. The control samples seem to
-            have more variance, especially the three outliers in the top left. Because the sizes of our sample groups
-            were already quite small, we chose to keep them in the study.
+          <p class="font-italic">A basic <a
+              href="https://en.wikipedia.org/wiki/Principal_component_analysis#:~:text=Principal%20component%20analysis%20(PCA)%20is,components%20and%20ignoring%20the%20rest."
+              target="_blank">Principal component analysis (PCA)</a> was ran <b>to determine if there were any
+              meaningful difference</b> between
+            the Antibiotic-resistant and Control groups. The principle components were calculated using <a
+              href="http://zzz.bwh.harvard.edu/plink/" target="_blank">Plink</a> and the <b>initial results look
+              promising</b>, with most of
+            the antibiotic-resistant E. Coli samples clustered together on the right. The control samples seem to
+            have more variance, especially the three outliers in the top left. Due to our <b>small dataset</b>,
+            the <b>outliers were retained</b> in the study.
           </p>
           <figure>
             <img src="assets/img/pca.png" alt="" class="img-fluid">
           </figure>
           <h3>Genome Wide Association Study</h3>
-          <p class="font-italic">In order to perform the GWAS, we used a Logistic Regression model which compares the
-            two groups and calculates a p-value for each SNP. The model was further tuned by using the first two
-            principal components as covariates, and all SNP’s with a genotyping rate of less than 60% were removed from
-            the analysis. The genotyping rate was used as a measure of missing data, and we found that 60% was the best
-            threshold to use in order to minimize the skew of our results.
+          <p class="font-italic">In order to perform the GWAS, we used a <b>Logistic Regression model</b>, comparing the
+            two groups and <b>calculating a p-value for each SNP</b>. The model was further tuned by utilizing the
+            <b>first
+              two
+              principal components as covariates</b>, and removing all <b>SNP’s with a genotyping rate of less than
+              60%</b>.
+            The genotyping rate is used as a measure of missing data, and we found that 60% was the best
+            threshold to <b>minimize the skew</b> of our results.
 
           </p>
           <figure>
             <img src="assets/img/gwas.png" alt="" class="img-fluid">
           </figure>
           <h3>Variant Annotation</h3>
-          <p class="font-italic">To perform further analysis on our variants, we chose snpEff to help us with the
-            variant annotation. We used the E-coli database that snpEff provided us as the reference in our annotation.
-            This step basically gives us an annotated vcf file, a succinct summary report and gene_name table. We can
-            then use snpSift to filter out the common variants which presented in both group and leave only the variants
-            we need. This step helps us reduce the scope significantly and enable us to do more specific analyzation
+          <p class="font-italic">To perform <b>further analysis on our variants</b>, we chose <a
+              href="https://pcingola.github.io/SnpEff/" target="_blank">snpEff</a> to assist us with
+            variant annotation. SnpEff provided us with an E. Coli <b>database to use as the reference</b> in our
+            annotation, giving
+            us an annotated vcf file, a succinct summary report, and gene_name table. We can
+            then use <a href="https://pcingola.github.io/SnpEff/" target="_blank">snpSift</a> to <b>filter out the
+              common variants</b> present in both group, <b>leaving only the necessary variants</b>
+            . This <b>reduces the scope significantly</b> and enables us to do <b>more specific analyzation</b>
             with it.
 
           </p>
@@ -304,14 +333,19 @@
             <img src="assets/img/annotation.png" alt="" class="img-fluid">
           </figure>
           <h3>snpEff Summary</h3>
-          <p class="font-italic">To briefly discuss about the summary table we got. Since the number of errors we
-            encountered is relatively small compared with our datasize, I want to focused more on the warnings we got.
-            We can see that there is a bunch numbers of warnings show in both control and esbl groups. These warnings
-            mainly consist of ref_dose_not match_genome error. I think it is because we used the presetted database of
-            snpEff. And it may be better if we can build our own database next time. We can also see that the variant
-            rate of the esbl group is much higher than the control group. Which is a good point indicates that there may
-            be some interesting finding in further analysis. We will just skip the other lines of these table since they
-            are just ordinary statistics with no specific interests.
+          <p class="font-italic">Since the <b>number of errors</b> we
+            encountered is relatively <b>small compared to our datasize</b>, we decided to focus more on the <b>numerous
+              warnings</b>. These warnings mainly consist of ref_dose_not_match_genome error. We theorized that it may
+            be a
+            <b>result of using two different reference genomes</b>: the original reference genome and the one provided
+            by
+            snpEff. It was <b>unavoidable in this study</b> as our initial reference genome was missing an essential
+            .gff file.
+            Our results could significantly improve if we built our own database. Another observation is that the
+            <b>variant
+              rate of the esbl group is much higher</b> than the control group. We hypothesize that it is due to the
+            possibility
+            that the ESBL group is more prone to mutations.
 
 
           </p>
@@ -320,26 +354,24 @@
           </figure>
 
           <h3>Overview of Variants</h3>
-          <p class="font-italic">So here is an brief overview of the base change and variants type of our two groups. So
-            the Base change is a basic gene level mutation which change the original gene base of a DNA molecule to
-            another type of it.We can see that the base changes frequently happens as Transitions between AG and CT. And
-            our variants are consist of mainly SNP, but also some insertion and deletion.
-
-
-
+          <p class="font-italic">Below is brief overview of the <b>base change and variants type</b> of our two groups.
+            Base change is a basic gene level mutation which <b>alters the original gene base</b> of a DNA molecule to
+            another type (A --> C, etc). In the tables below, for both control and ESBL, one can observe that the
+            <b>most frequent base change happens between AG and CT</b> and
+            our variants consists of mainly SNP, with few insertion and deletion.
           </p>
           <figure>
             <img src="assets/img/overview.png" alt="" class="img-fluid">
           </figure>
 
-          <h3>Overview of possible Effects of Variants</h3>
-          <p class="font-italic">Until this point, we possibly find that the statistical data we got from the two groups
-            are kinds of similar. The Missense/Silent ratio is about 3 for both groups. Which is kinds of high and
-            indicates that most of the mutations happen in our samples directly affect the amino acid it produced. For
-            the red highlighted part, We can see that we have a large numbers of down/upstream gene variants. It
-            indicates that most of these sequence variants located at five/three-prime end of a gene.This things happens
-            possibly because we look at all of the variants we have. We will then apply snpsift filtration To reduce the
-            scope and see what’s changed.
+          <h3>Possible Effects of Variants</h3>
+          <p class="font-italic">The statistical data generated by snpEff illustrates that the <b>control and ESBL group
+              are incredibly similar</b> with a few variance. For both groups, the <b>Missense/Silent ratio is about
+              3</b> which is quite high.
+            As this ratio increases, the more <b>mutations happening in our samples directly affect the
+              amino acid it produces</b>. This could be reason for E. Coli bacteria gaining resistance to antibiotics.
+            The rest of the statistics are similar and do not reveal how E. Coli bacterias become antibiotic resistant.
+            Next, we will apply <b>snpSift filtration to reduce the scope</b> of the dataset to observe any noticeable changes.
 
           </p>
 
@@ -484,7 +516,8 @@
         </div>
 
         <div class="row">
-          <p class="font-italic"> As you can recall we had a few outliers that we left in our data due to our small sample size.
+          <p class="font-italic"> As you can recall we had a few outliers that we left in our data due to our small
+            sample size.
             The time it took to Process each sample was arduous and the time constraints of this project simply would
             not allow for more samples
             Reference genome used for variant annotation was not a complete version, gene annotation was not included.
@@ -551,6 +584,13 @@
               <p>
                 6. Hokkaido University. National Center for Biotechnology Information, U.S. National Library of
                 Medicine, 8 Dec. 2020, trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJDB10450&o=acc_s%3Aa.
+              </p>
+              <p>
+                7. Babraham Institute. Babraham Bioinformatics - FastQC A Quality Control Tool for High Throughput
+                Sequence Data, 26 Apr. 2010, www.bioinformatics.babraham.ac.uk/projects/fastqc/.
+              </p>
+              <p>
+                8. Cutadapt — Cutadapt 3.1 documentation.https://cutadapt.readthedocs.io/en/stable/
               </p>
             </div>
           </li>
