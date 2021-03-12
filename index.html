@@ -358,7 +358,9 @@
             Base change is a basic gene level mutation which <b>alters the original gene base</b> of a DNA molecule to
             another type (A --> C, etc). In the tables below, for both control and ESBL, one can observe that the
             <b>most frequent base change happens between AG and CT</b> and
-            our variants consists of mainly SNP, with few insertion and deletion.
+            our variants consists of mainly SNP, with few insertion and deletion. In a study, G-C DNA was observed to
+            "having a greater bonding between the base pairs" which implies that it is more difficult to have base
+            changes between the pair and this can be clearly seen in our results<sup>[9]</sup>. 
           </p>
           <figure>
             <img src="assets/img/overview.png" alt="" class="img-fluid">
@@ -503,13 +505,14 @@
                     <li class="nav-item">
                       <a class="nav-link active show" data-bs-toggle="tab" href="#tab-7">
                         <h4>Q-Q Plot</h4>
-                        <p>This Q-Q plot visualizes the p-values from the table</p>
+                        <p>The Q-Q plot compares the distribution of p-values with a normal distribution</p>
                       </a>
                     </li>
                     <li class="nav-item mt-2">
                       <a class="nav-link" data-bs-toggle="tab" href="#tab-8">
                         <h4>Manhattan plot</h4>
-                        <p>This Manhattan plot visualizes the variance of p-values across the genome</p>
+                        <p>The Manhattan plot visualizes each SNP and it's associated p-value in reference to its
+                          location in the genome</p>
                       </a>
                     </li>
                   </ul>
@@ -537,6 +540,8 @@
             principal component
             analysis and variant annotation, but the location of the specific SNPs responsible for ESBL production is
             <b>still unknown</b>.
+          </p>
+          <p>
             One of the <b>primary limitations</b> encountered was <b>determining a definition for antibiotic
               resistance</b> that could
             be <b>feasibly tested using a GWAS</b>. Although ESBL production has been proven to render E.Coli resistant
@@ -545,22 +550,19 @@
             classify
             other bacterial strains as antibiotic resistant. Another limitation was the <b>limited sample size</b>. This
             paired
-            with the possible outliers from our principal component analysis could have given skewed results. If the
-            study were to be repeated it would ideally involve hundreds, if not thousands of E.Coli samples. Time was
-            another limiting factor, as a single sample takes approximately 60-70 minutes to be processed from raw reads
-            to the Variant Call Format file needed for Plink and SnpEff. We also did not have access to a .gff file at
+            with the possible outliers from our principal component analysis could have <b>given skewed results</b>. If
+            the
+            study were to be repeated it would ideally involve hundreds, if not thousands of E.Coli samples. <b>Time was
+              another limiting factor</b>, as a single sample takes approximately 60-70 minutes to be processed from raw
+            reads
+            to the Variant Call Format file needed for Plink and SnpEff. We also <b>did not have access to a .gff
+              file</b> at
             the beginning of the study, which is an annotation file that is meant to be paired with the reference
             sequence used for alignment and variant calling. Because of this, we had to use two different reference
-            genomes at different stages of the pipeline, which may have influenced the final GWAS and SnpEff outputs. In
-            order to improve the logistic regression model, covariates such as %GC Content and more granular SNP
-            filtering could be implemented.
-            This study is a small stepping stone toward addressing the much broader problem of antibiotic resistance.
-            The project pipeline can be applied to any strain of bacteria with a case and control group which can not
-            only help identify significant genomic variants, but also their effects on protein transcription.
-            Understanding these markers for antibiotic resistance can better inform scientists of how such physiological
-            changes occur and what can be done to prevent the emergence of new antibiotic resistant strains in the
-            future.
-
+            genomes at different stages of the pipeline, which <b>may have influenced the final GWAS and SnpEff
+              outputs</b>. In
+            order to improve the logistic regression model, <b>covariates such as %GC Content and more granular SNP
+              filtering could be implemented</b>.</p>
 
           </p>
           <figure>
@@ -568,13 +570,15 @@
           </figure>
 
           <p class="font-italic">
-            What more can be done? Well, there are countless possibilities. The pipeline we created can be used, not
-            just for E. Coli bacteria, but on any strain of bacteria. This can help combat other and future antibiotic
-            resistant bacterias. Testing resistance to specific drugs can drive the development of new and effective
-            treatments by pharmaceutical companies. A Machine learning model can apply our pipeline to more easily
-            identify and predict whether a new bacterial strain has the potential to be antibiotic resistant. We can
-            save countless of lives and prevent countless of illnesses. We believe that our study, this study, is simply
-            just a stepping stone for something greater.
+
+            This study is a small stepping stone toward addressing the much broader problem of antibiotic resistance.
+            The project pipeline can be applied to any strain of bacteria with a case and control group which can not
+            only help identify significant genomic variants, but also their effects on protein transcription.
+            Understanding these markers for antibiotic resistance can better inform scientists of how such physiological
+            changes occur and what can be done to prevent the emergence of new antibiotic resistant strains in the
+            future. Testing resistance to specific drugs can drive the development of new and effective
+            treatments by pharmaceutical companies. A machine learning model can apply our pipeline to more easily
+            identify and predict whether a new bacterial strain has the potential to be antibiotic resistant.
           </p>
         </div>
 
@@ -630,6 +634,10 @@
               </p>
               <p>
                 8. Cutadapt — Cutadapt 3.1 documentation.https://cutadapt.readthedocs.io/en/stable/
+              </p>
+              <p>
+                9. "DNA Structure - The School Of Biomedical Sciences Wiki". Teaching.Ncl.Ac.Uk, 2021,
+                https://teaching.ncl.ac.uk/bms/wiki/index.php/DNA_Structure?fbclid=IwAR00bHpJnec5eIT31PAJPRufMWzlob86-cJiY-rfdRGFC7Py3AT1ueOcZ3w.
               </p>
             </div>
           </li>
