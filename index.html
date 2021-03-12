@@ -243,15 +243,14 @@
             mutations that can
             differentiate samples, with the goal being able to find the SNP’s that are significantly different between
             our antibiotic-resistant and control groups. This was done using GATK’s <a
-            href="https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller"
-            target="_blank">HaplotypeCaller</a> tool, which outputs
+              href="https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller"
+              target="_blank">HaplotypeCaller</a> tool, which outputs
             a vcf that contains the list of variants found in a single sample. All of these vcf files were then merged
-            into a single file using <a
-            href="http://samtools.github.io/bcftools/bcftools.html"
-            target="_blank">bcftools</a> which can be used for our GWAS.
+            into a single file using <a href="http://samtools.github.io/bcftools/bcftools.html"
+              target="_blank">bcftools</a> which can be used for our GWAS.
           </p>
           <figure>
-            <img src="assets/img/variant.png" alt="" class="img-fluid">
+            <img src="assets/img/variant.png" alt="" class="img-fluid" style="padding-bottom:30px">
           </figure>
         </div>
 
@@ -259,29 +258,31 @@
     </section><!-- End data Section -->
 
     <!-- ======= Results Section ======= -->
-    <section id="results" class="results">
+    <section id="results" class="methodology">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
           <h2>Results</h2>
-          <p> This section contains our Results...
-          </p>
         </div>
 
         <div class="row">
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
-              <p class="font-italic">
-                This is our results...
-              </p>
-
-            </div>
-          </div>
+          <h4 id="pipeline">PCA analysis</h4>
+          <p class="font-italic">So that was our entire process of data setup. We can move onto the actual “analysis” of
+            these genomic variants, starting with a basic PCA to determine if there is any meaningful difference between
+            the Antibiotic-resistant and Control groups. The principle components were calculated using Plink, and the
+            scatterplot of the first two PC’s are shown on the right. The initial results look promising, with most of
+            the antibiotic-resistant E. Coli samples being clustered together on the right. The control samples seem to
+            have more variance, especially the three outliers in the top left. Because the sizes of our sample groups
+            were already quite small, we chose to keep them in the study.
+          </p>
+          <figure>
+            <img src="assets/img/pca.png" alt="" class="img-fluid">
+          </figure>
         </div>
 
       </div>
       <!-- ======= Results data Section ======= -->
-      <section class="data">
+      <section class="methodology">
         <div class="container">
 
           <div class="row">
