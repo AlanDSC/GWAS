@@ -123,12 +123,15 @@
     <!-- ======= Methodology Section ======= -->
     <section id="methodology" class="methodology">
       <div class="container">
-
         <div class="section-title" data-aos="fade-up">
           <h2>Metholodgy</h2>
         </div>
+        <div class="row">
+          <h4 id="pipeline">An Overview of the Pipeline</h4>
 
-        <div class="information" data-aos="fade-up">
+          <figure>
+            <img src="assets/img/pipeline.png" class="img-fluid" alt="pipeline">
+          </figure>
           <h3>The Data</h3>
           <p class="font-italic">
             The study was conducted using two groups of samples, one with an <b>ESBL-enzyme
@@ -139,23 +142,6 @@
               NCBI's SRA Run Selector</a> and formatted as <b>.fastq files</b> <sup>[6][7]</sup>. Each sample has two
             files associated with it, as they are paired-end reads, totalling to 144 files.
           </p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End methodology Section -->
-
-    <!-- ======= data Section ======= -->
-    <section id="data" class="data">
-      <div class="container">
-
-        <div class="row">
           <h3>Quality Control</h3>
           <p>To ensure these 144 files will yield valid results later in the analysis, each was put through a quality
             control software called FastQC. <b>FastQC</b> takes in a single .fastq file and <b>outputs a summary
@@ -171,8 +157,11 @@
             included in the study.
             However, the <b>antibiotic resistance group</b> had more samples that had an <b>unusually high per
               sequence GC content</b>, indicated by the higher number of ESBL_Samples that failed this check (see <a
-              href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html">GC
-              Content</a> and <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html">Adapter Content</a>). This could be due to either the data being lower quality, OR this
+              href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html"
+              target="_blank">GC
+            </a> and <a
+              href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html"
+              target="_blank">Adapter Content</a>). This could be due to either the data being lower quality, OR this
             possibly being an actual
             physiological marker for genomes in this group.
           </p>
@@ -224,12 +213,46 @@
               <li class="nav-item mt-4">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
                   <h4>GC and Adapter Content</h4>
-                  <p>GC-Content shows the percentage of nitrogenous bases in the DNA that are either G or C </p>
-                  <p>Adapter Content checks if any sequence is overly present in the reads </p>
+                  <p>Aggregated results of GC and Adapter contents </p>
                 </a>
               </li>
             </ul>
           </div>
+          <h3>Sequence Alignment, File Conversion, Sorting</h3>
+          <p class="font-italic">
+            A pair of .fastq files for one sample contain the raw reads from the entire genome, but those reads are
+            essentially small fragments that need to be put together like a puzzle. This is where the process of
+            alignment comes in. Using a previously known E. Coli reference genome, we utilized an alignment software
+            called
+            <b>Bowtie2</b> which algorithmically pieces together these <b>reads into a contiguous sequence</b>. The
+            output is a file
+            in sam format, which is a text readable version of this sequence. Using <a href="http://www.htslib.org/"
+              target="_blank">samtools</a> and <a href="https://broadinstitute.github.io/picard/"
+              target="_blank">picard</a>, these sam files were then converted to
+            .bam - a compressed version that runs more efficiently through bioinformatics software.
+          </p>
+          <figure>
+            <img src="assets/img/alignment.png" alt="" class="img-fluid">
+          </figure>
+          <h3>Variant Calling</h3>
+          <p class="font-italic">
+            The 72 cleaned and formatted .bam files then undergo Variant Calling, which is the process of identifying
+            the <a
+              href="https://isogg.org/wiki/Single-nucleotide_polymorphism#:~:text=A%20single%2Dnucleotide%20polymorphism%20(SNP,paired%20chromosomes%20in%20an%20individual."
+              target="_blank">Single Nucleotide Polymorphisms</a>, or SNP’s in each sample. These are the point
+            mutations that can
+            differentiate samples, with the goal being able to find the SNP’s that are significantly different between
+            our antibiotic-resistant and control groups. This was done using GATK’s <a
+            href="https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller"
+            target="_blank">HaplotypeCaller</a> tool, which outputs
+            a vcf that contains the list of variants found in a single sample. All of these vcf files were then merged
+            into a single file using <a
+            href="http://samtools.github.io/bcftools/bcftools.html"
+            target="_blank">bcftools</a> which can be used for our GWAS.
+          </p>
+          <figure>
+            <img src="assets/img/variant.png" alt="" class="img-fluid">
+          </figure>
         </div>
 
       </div>
@@ -361,11 +384,13 @@
                 class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq1" class="collapse" data-bs-parent=".faq-list">
               <p>
-              <p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>
-                A quality control tool for high throughput sequence data.</p>
+              <p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank">FastQC</a>
+                A quality control tool that is used in checking the quality of raw sequencing data before performing
+                large-scale analysis</p>
               </p>
               <p>
-              <p><a href="https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html">FastQ file</a>
+              <p><a href="https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html"
+                  target="_blank">FastQ file</a>
                 A text file that contain raw reads obtained straight from the sequencing machine.</p>
               </p>
             </div>
