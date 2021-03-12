@@ -371,7 +371,8 @@
             As this ratio increases, the more <b>mutations happening in our samples directly affect the
               amino acid it produces</b>. This could be reason for E. Coli bacteria gaining resistance to antibiotics.
             The rest of the statistics are similar and do not reveal how E. Coli bacterias become antibiotic resistant.
-            Next, we will apply <b>snpSift filtration to reduce the scope</b> of the dataset to observe any noticeable changes.
+            Next, we will apply <b>snpSift filtration to reduce the scope</b> of the dataset to observe any noticeable
+            changes.
 
           </p>
 
@@ -380,13 +381,11 @@
           </figure>
 
           <h3>Finding the Mutated Genes</h3>
-          <p class="font-italic"> We did this comparison by passing the annotated vcf file we got from snpeff to
-            snpSift.
-            we then filtered them out and keep only high/moderate impact variants presented in all of our esbl samples
-            and absent in at least one of our control samples. originally , we have over 60 thouthands variants after
-            annotation, but now only 50 remain after this filtration. We extract these informations and and count for
-            the 10 most frequently presented Mutated Genes. And the geneid of them is at left.
-
+          <p class="font-italic"> Using snpSift, only <b>high/moderate impact variants</b> (present in our ESBL samples
+            and absent in at least one of our control samples) were kept. Originally, we had over 60 thousand variants,
+            but only 50 remain after this filtration. Of those 50 variants, we extracted the <b>top 10 most frequently
+              found
+              mutated genes</b>. Below is a snippet of 5 variants that passed our filter.
 
           </p>
 
@@ -394,9 +393,14 @@
             <img src="assets/img/mutatedOne.png" alt="" class="img-fluid">
           </figure>
 
+          <p class="font-italic">
 
+            We can observe that in the remaining variants the most frequent mutations are from A -> G (see Base
+            changes). In addition, the <b>variants_impact_MODIFIER</b> is quite high indicating that there are <b>more
+              variances,
+              with greater impact</b>, in this gene.
 
-          <!-- ======= Results data Section ======= -->
+            <!-- ======= Results data Section ======= -->
           <section class="methodology">
             <div class="container">
 
@@ -420,14 +424,14 @@
                   <ul class="nav nav-tabs flex-column">
                     <li class="nav-item">
                       <a class="nav-link active show" data-bs-toggle="tab" href="#tab-5">
-                        <h4>Results 1</h4>
-                        <p>How this result is obtained...</p>
+                        <h4>Gene data</h4>
+                        <p>This table contains the data of one of the top ten most commonly found mutated gene.</p>
                       </a>
                     </li>
                     <li class="nav-item mt-2">
                       <a class="nav-link" data-bs-toggle="tab" href="#tab-6">
-                        <h4>Results 2</h4>
-                        <p>How this result is obtained...</p>
+                        <h4>Base changes</h4>
+                        <p>This bar plot illustrates the base change happening in the remaining variants</p>
                       </a>
                     </li>
                   </ul>
@@ -438,12 +442,16 @@
           </section><!-- End result-data Section -->
           <h3>GWAS results</h3>
           <p class="font-italic"> Here are the results of the GWAS Study done using logistic regression with Plink. The
-            table on the left is a list of SNP’s with the lowest p-values, indicating which variants are most likely to
-            be statistically significant. 32,414 separate comparisons were made, with 1,598 variants having an
-            associated p-value of less than 0.05. However, in studies dealing with biological data in particular, a
-            technique called Bonferroni correction is applied due to multiple comparisons being done simultaneously.
+            table is a <b>list of SNP’s with the lowest p-values</b>, indicating which variants are most likely to
+            be statistically significant. <b>32,414 separate comparisons were made</b>, with <b>1,598 variants having an
+              associated p-value of less than 0.05</b>. However, in studies dealing with biological data in particular,
+            a
+            technique called <a
+              href="https://mathworld.wolfram.com/BonferroniCorrection.html#:~:text=The%20Bonferroni%20correction%20is%20a,the%20set%20of%20all%20comparisons)."
+              target="_blank"> Bonferroni correction</a> is applied due to multiple comparisons being done
+            simultaneously.
             It’s calculated by dividing the desired threshold, 0.05, by the number of comparisons, resulting in a much
-            smaller threshold. After applying this correction, 0 of these variants had p-values lower than this
+            smaller threshold. After applying this correction, <b>0 of these variants</b> had p-values lower than this
             threshold.
 
 
@@ -452,16 +460,22 @@
           <figure>
             <img src="assets/img/snp.png" alt="" class="img-fluid">
           </figure>
-          <h3>GWAS results</h3>
-          <p class="font-italic"> Here are the results of the GWAS Study done using logistic regression with Plink. The
-            table on the left is a list of SNP’s with the lowest p-values, indicating which variants are most likely to
-            be statistically significant. 32,414 separate comparisons were made, with 1,598 variants having an
-            associated p-value of less than 0.05. However, in studies dealing with biological data in particular, a
-            technique called Bonferroni correction is applied due to multiple comparisons being done simultaneously.
-            It’s calculated by dividing the desired threshold, 0.05, by the number of comparisons, resulting in a much
-            smaller threshold. After applying this correction, 0 of these variants had p-values lower than this
-            threshold.
-
+          <p class="font-italic">
+            The <b>p-values</b> from the table were then visualized using a <a
+              href="https://data.library.virginia.edu/understanding-q-q-plots/#:~:text=A%20Q%2DQ%20plot%20is%20a,truly%20come%20from%20Normal%20distributions."
+              target="_blank">Q-Q
+              plot</a> to check if their <b>distribution resembles
+              data that is normally distributed</b>. From the plot shown below (see Q-Q plot), there appears to be a
+            <b>skew of
+              more
+              extreme values</b>, indicated by the longer tails at the ends. A Manhattan plot was also produced to
+            visualize
+            how these p-values vary across the genome. In the Manhattan plot, <b>each dot represents a single SNP</b>,
+            with
+            the -log10 of
+            the p-value on the y-axis and the genome location on the x-axis. <b>None of the SNPs hit the threshold</b>
+            for
+            Bonferroni correction, indicated by the horizontal red line at the top of the plot (see Manhattan plot).
 
           </p>
           <!-- ======= Results data Section ======= -->
@@ -488,14 +502,14 @@
                   <ul class="nav nav-tabs flex-column">
                     <li class="nav-item">
                       <a class="nav-link active show" data-bs-toggle="tab" href="#tab-7">
-                        <h4>Results 1</h4>
-                        <p>How this result is obtained...</p>
+                        <h4>Q-Q Plot</h4>
+                        <p>This Q-Q plot visualizes the p-values from the table</p>
                       </a>
                     </li>
                     <li class="nav-item mt-2">
                       <a class="nav-link" data-bs-toggle="tab" href="#tab-8">
-                        <h4>Results 2</h4>
-                        <p>How this result is obtained...</p>
+                        <h4>Manhattan plot</h4>
+                        <p>This Manhattan plot visualizes the variance of p-values across the genome</p>
                       </a>
                     </li>
                   </ul>
@@ -516,12 +530,32 @@
         </div>
 
         <div class="row">
-          <p class="font-italic"> As you can recall we had a few outliers that we left in our data due to our small
-            sample size.
-            The time it took to Process each sample was arduous and the time constraints of this project simply would
-            not allow for more samples
-            Reference genome used for variant annotation was not a complete version, gene annotation was not included.
-            Other covariates such as %GC Content could have been taken into account
+          <p class="font-italic">Our study <b>aimed to explore and identify the genetic markers that characterize
+            antibiotic resistance</b> in ESBL-producing E. Coli. The project involved comprehensive processing of our
+              genomic data, followed by a genome wide association study and <b>analysis of found variants and their
+                functional effects</b>. Through our analysis, we <b>noticed some observable differences</b> through principal component
+            analysis and variant annotation, but the location of the specific SNPs responsible for ESBL production is
+            <b>still unknown</b>.
+            One of the <b>primary limitations</b> encountered was determining a definition for antibiotic resistance that could
+            be <b>feasibly tested using a GWAS</b>. Although ESBL production has been proven to render E.Coli resistant to
+            common antibiotics, there are many different physiological mechanisms that could also be used to classify
+            other bacterial strains as antibiotic resistant. Another limitation was the limited sample size. This paired
+            with the possible outliers from our principal component analysis could have given skewed results. If the
+            study were to be repeated it would ideally involve hundreds, if not thousands of E.Coli samples. Time was
+            another limiting factor, as a single sample takes approximately 60-70 minutes to be processed from raw reads
+            to the Variant Call Format file needed for Plink and SnpEff. We also did not have access to a .gff file at
+            the beginning of the study, which is an annotation file that is meant to be paired with the reference
+            sequence used for alignment and variant calling. Because of this, we had to use two different reference
+            genomes at different stages of the pipeline, which may have influenced the final GWAS and SnpEff outputs. In
+            order to improve the logistic regression model, covariates such as %GC Content and more granular SNP
+            filtering could be implemented.
+            This study is a small stepping stone toward addressing the much broader problem of antibiotic resistance.
+            The project pipeline can be applied to any strain of bacteria with a case and control group which can not
+            only help identify significant genomic variants, but also their effects on protein transcription.
+            Understanding these markers for antibiotic resistance can better inform scientists of how such physiological
+            changes occur and what can be done to prevent the emergence of new antibiotic resistant strains in the
+            future.
+
 
           </p>
           <figure>
