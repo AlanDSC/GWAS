@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -320,11 +321,11 @@ section {
 
 .section-title {
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 100px;
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 45px;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 15px;
@@ -334,7 +335,8 @@ section {
 
 .section-title p {
   margin-bottom: 0;
-  color: #aeaeae;
+  color: #3b3b3bbb;
+  font-size: 20px;
 }
 
 /*--------------------------------------------------------------
@@ -347,7 +349,8 @@ section {
 
 .about .content h3 {
   font-weight: 600;
-  font-size: 26px;
+  font-size: 35px;
+  padding-bottom: 15px;
 }
 
 .about .content ul {
@@ -546,6 +549,11 @@ section {
 }
 
 #footer .copyright {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+#footer .maintained {
   text-align: center;
 }
 
