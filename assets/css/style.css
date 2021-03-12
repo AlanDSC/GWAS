@@ -397,7 +397,7 @@ section {
   padding-top: 30px;
   text-align: center;
 }
-.methodology h4 {text-align: center;}
+.methodology h4[id="pipeline"] {text-align: center;}
 
 .methodology .nav-tabs {
   border: 0;

@@ -47,7 +47,7 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#methodology">Methodology</a></li>
           <li><a class="nav-link scrollto" href="#results">Results</a></li>
-          <li><a class="nav-link scrollto" href="#results">Conclusion</a></li>
+          <li><a class="nav-link scrollto" href="#conclusion">Conclusion</a></li>
           <li><a class="nav-link scrollto" href="#faq">Sources</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -331,70 +331,147 @@
           <figure>
             <img src="assets/img/overview.png" alt="" class="img-fluid">
           </figure>
-        </div>
 
-      </div>
-      <!-- ======= Results data Section ======= -->
-      <section class="methodology">
-        <div class="container">
+          <h3>Overview of possible Effects of Variants</h3>
+          <p class="font-italic">Until this point, we possibly find that the statistical data we got from the two groups
+            are kinds of similar. The Missense/Silent ratio is about 3 for both groups. Which is kinds of high and
+            indicates that most of the mutations happen in our samples directly affect the amino acid it produced. For
+            the red highlighted part, We can see that we have a large numbers of down/upstream gene variants. It
+            indicates that most of these sequence variants located at five/three-prime end of a gene.This things happens
+            possibly because we look at all of the variants we have. We will then apply snpsift filtration To reduce the
+            scope and see what’s changed.
 
-          <div class="row">
-            <div class="col-lg-6" data-aos="fade-right">
-              <div class="tab-content">
-                <div class="tab-pane active show" id="tab-1">
-                  <figure>
-                    <img src="assets/img/image.png" alt="" class="img-fluid">
-                  </figure>
+          </p>
+
+          <figure>
+            <img src="assets/img/missense.png" alt="" class="img-fluid">
+          </figure>
+
+          <h3>Finding the Mutated Genes</h3>
+          <p class="font-italic"> We did this comparison by passing the annotated vcf file we got from snpeff to
+            snpSift.
+            we then filtered them out and keep only high/moderate impact variants presented in all of our esbl samples
+            and absent in at least one of our control samples. originally , we have over 60 thouthands variants after
+            annotation, but now only 50 remain after this filtration. We extract these informations and and count for
+            the 10 most frequently presented Mutated Genes. And the geneid of them is at left.
+
+
+          </p>
+
+          <figure>
+            <img src="assets/img/mutatedOne.png" alt="" class="img-fluid">
+          </figure>
+
+
+
+          <!-- ======= Results data Section ======= -->
+          <section class="methodology">
+            <div class="container">
+
+              <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                  <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-5">
+                      <figure>
+                        <img src="assets/img/mutatedTwo.png" alt="" class="img-fluid">
+                      </figure>
+                    </div>
+                    <div class="tab-pane" id="tab-6">
+                      <figure>
+                        <img src="assets/img/mutatedThree.png" alt="" class="img-fluid">
+                      </figure>
+                    </div>
+
+                  </div>
                 </div>
-                <div class="tab-pane" id="tab-2">
-                  <figure>
-                    <img src="assets/img/image.png" alt="" class="img-fluid">
-                  </figure>
-                </div>
-                <div class="tab-pane" id="tab-3">
-                  <figure>
-                    <img src="assets/img/image.png" alt="" class="img-fluid">
-                  </figure>
-                </div>
-                <div class="tab-pane" id="tab-4">
-                  <figure>
-                    <img src="assets/img/image.png" alt="" class="img-fluid">
-                  </figure>
+                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+                  <ul class="nav nav-tabs flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active show" data-bs-toggle="tab" href="#tab-5">
+                        <h4>Results 1</h4>
+                        <p>How this result is obtained...</p>
+                      </a>
+                    </li>
+                    <li class="nav-item mt-2">
+                      <a class="nav-link" data-bs-toggle="tab" href="#tab-6">
+                        <h4>Results 2</h4>
+                        <p>How this result is obtained...</p>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
-              <ul class="nav nav-tabs flex-column">
-                <li class="nav-item">
-                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-5">
-                    <h4>Results 1</h4>
-                    <p>How this result is obtained...</p>
-                  </a>
-                </li>
-                <li class="nav-item mt-2">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-6">
-                    <h4>Results 2</h4>
-                    <p>How this result is obtained...</p>
-                  </a>
-                </li>
-                <li class="nav-item mt-2">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-7">
-                    <h4>Results 3</h4>
-                    <p>How this result is obtained...</p>
-                  </a>
-                </li>
-                <li class="nav-item mt-2">
-                  <a class="nav-link" data-bs-toggle="tab" href="#tab-8">
-                    <h4>Results 4</h4>
-                    <p>How this result is obtained...</p>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
 
-        </div>
-      </section><!-- End result-data Section -->
+            </div>
+          </section><!-- End result-data Section -->
+          <h3>GWAS results</h3>
+          <p class="font-italic"> Here are the results of the GWAS Study done using logistic regression with Plink. The
+            table on the left is a list of SNP’s with the lowest p-values, indicating which variants are most likely to
+            be statistically significant. 32,414 separate comparisons were made, with 1,598 variants having an
+            associated p-value of less than 0.05. However, in studies dealing with biological data in particular, a
+            technique called Bonferroni correction is applied due to multiple comparisons being done simultaneously.
+            It’s calculated by dividing the desired threshold, 0.05, by the number of comparisons, resulting in a much
+            smaller threshold. After applying this correction, 0 of these variants had p-values lower than this
+            threshold.
+
+
+          </p>
+
+          <figure>
+            <img src="assets/img/snp.png" alt="" class="img-fluid">
+          </figure>
+          <h3>GWAS results</h3>
+          <p class="font-italic"> Here are the results of the GWAS Study done using logistic regression with Plink. The
+            table on the left is a list of SNP’s with the lowest p-values, indicating which variants are most likely to
+            be statistically significant. 32,414 separate comparisons were made, with 1,598 variants having an
+            associated p-value of less than 0.05. However, in studies dealing with biological data in particular, a
+            technique called Bonferroni correction is applied due to multiple comparisons being done simultaneously.
+            It’s calculated by dividing the desired threshold, 0.05, by the number of comparisons, resulting in a much
+            smaller threshold. After applying this correction, 0 of these variants had p-values lower than this
+            threshold.
+
+
+          </p>
+          <!-- ======= Results data Section ======= -->
+          <section class="methodology">
+            <div class="container">
+
+              <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                  <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-7">
+                      <figure>
+                        <img src="assets/img/qq.png" alt="" class="img-fluid">
+                      </figure>
+                    </div>
+                    <div class="tab-pane" id="tab-8">
+                      <figure>
+                        <img src="assets/img/manhattan.png" alt="" class="img-fluid">
+                      </figure>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+                  <ul class="nav nav-tabs flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active show" data-bs-toggle="tab" href="#tab-7">
+                        <h4>Results 1</h4>
+                        <p>How this result is obtained...</p>
+                      </a>
+                    </li>
+                    <li class="nav-item mt-2">
+                      <a class="nav-link" data-bs-toggle="tab" href="#tab-8">
+                        <h4>Results 2</h4>
+                        <p>How this result is obtained...</p>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </section><!-- End result-data Section -->
     </section><!-- End results Section -->
 
     <!-- ======= Conclusion Section ======= -->
@@ -403,19 +480,30 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Conclusion</h2>
-          <p> This section contains our conclusion...
-          </p>
+
         </div>
 
         <div class="row">
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
-              <p class="font-italic">
-                Conclusion is that ....
-              </p>
+          <p class="font-italic"> As you can recall we had a few outliers that we left in our data due to our small sample size.
+            The time it took to Process each sample was arduous and the time constraints of this project simply would
+            not allow for more samples
+            Reference genome used for variant annotation was not a complete version, gene annotation was not included.
+            Other covariates such as %GC Content could have been taken into account
 
-            </div>
-          </div>
+          </p>
+          <figure>
+            <img src="assets/img/limits.png" alt="" class="img-fluid">
+          </figure>
+
+          <p class="font-italic">
+            What more can be done? Well, there are countless possibilities. The pipeline we created can be used, not
+            just for E. Coli bacteria, but on any strain of bacteria. This can help combat other and future antibiotic
+            resistant bacterias. Testing resistance to specific drugs can drive the development of new and effective
+            treatments by pharmaceutical companies. A Machine learning model can apply our pipeline to more easily
+            identify and predict whether a new bacterial strain has the potential to be antibiotic resistant. We can
+            save countless of lives and prevent countless of illnesses. We believe that our study, this study, is simply
+            just a stepping stone for something greater.
+          </p>
         </div>
 
       </div>
