@@ -268,7 +268,7 @@
         </div>
 
         <div class="row">
-          <h4 id="pipeline">PCA analysis</h4>
+          <h3>PCA Analysis</h3>
           <p class="font-italic">So that was our entire process of data setup. We can move onto the actual “analysis” of
             these genomic variants, starting with a basic PCA to determine if there is any meaningful difference between
             the Antibiotic-resistant and Control groups. The principle components were calculated using Plink, and the
@@ -280,7 +280,7 @@
           <figure>
             <img src="assets/img/pca.png" alt="" class="img-fluid">
           </figure>
-          <h4 id="pipeline">Genome Wide Association Study</h4>
+          <h3>Genome Wide Association Study</h3>
           <p class="font-italic">In order to perform the GWAS, we used a Logistic Regression model which compares the
             two groups and calculates a p-value for each SNP. The model was further tuned by using the first two
             principal components as covariates, and all SNP’s with a genotyping rate of less than 60% were removed from
@@ -290,6 +290,46 @@
           </p>
           <figure>
             <img src="assets/img/gwas.png" alt="" class="img-fluid">
+          </figure>
+          <h3>Variant Annotation</h3>
+          <p class="font-italic">To perform further analysis on our variants, we chose snpEff to help us with the
+            variant annotation. We used the E-coli database that snpEff provided us as the reference in our annotation.
+            This step basically gives us an annotated vcf file, a succinct summary report and gene_name table. We can
+            then use snpSift to filter out the common variants which presented in both group and leave only the variants
+            we need. This step helps us reduce the scope significantly and enable us to do more specific analyzation
+            with it.
+
+          </p>
+          <figure>
+            <img src="assets/img/annotation.png" alt="" class="img-fluid">
+          </figure>
+          <h3>snpEff Summary</h3>
+          <p class="font-italic">To briefly discuss about the summary table we got. Since the number of errors we
+            encountered is relatively small compared with our datasize, I want to focused more on the warnings we got.
+            We can see that there is a bunch numbers of warnings show in both control and esbl groups. These warnings
+            mainly consist of ref_dose_not match_genome error. I think it is because we used the presetted database of
+            snpEff. And it may be better if we can build our own database next time. We can also see that the variant
+            rate of the esbl group is much higher than the control group. Which is a good point indicates that there may
+            be some interesting finding in further analysis. We will just skip the other lines of these table since they
+            are just ordinary statistics with no specific interests.
+
+
+          </p>
+          <figure>
+            <img src="assets/img/snpeff.png" alt="" class="img-fluid">
+          </figure>
+
+          <h3>Overview of Variants</h3>
+          <p class="font-italic">So here is an brief overview of the base change and variants type of our two groups. So
+            the Base change is a basic gene level mutation which change the original gene base of a DNA molecule to
+            another type of it.We can see that the base changes frequently happens as Transitions between AG and CT. And
+            our variants are consist of mainly SNP, but also some insertion and deletion.
+
+
+
+          </p>
+          <figure>
+            <img src="assets/img/overview.png" alt="" class="img-fluid">
           </figure>
         </div>
 
@@ -428,10 +468,10 @@
           </li>
           <li data-aos="fade-up" data-aos-delay="200">
             <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">Source Code <i
-              class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-          <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-            <p><a href="https://github.com/myhaider/antibiotic-resistance">Github Repository</a></p>
-            </li>
+                class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p><a href="https://github.com/myhaider/antibiotic-resistance">Github Repository</a></p>
+          </li>
         </ul>
 
       </div>
